@@ -17,7 +17,7 @@ This module uses `fetch()` under the hood to make requests. However, if used Nod
 Documentation is [available here](https://minimusubi.github.io/curseforge-api/) and is automatically generated from the source with [TypeDoc](https://typedoc.org/).
 
 ## Getting Started
-Import the package and create a client:
+Import the package and create a [client](https://minimusubi.github.io/curseforge-api/classes/CurseForgeClient.html):
 ```js
 import {CurseForgeClient} from 'curseforge-api';
 const client = new CurseForgeClient('YOUR_API_KEY');
