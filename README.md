@@ -13,8 +13,10 @@ This module uses `fetch()` under the hood to make requests. However, if used Nod
 		1. [Node.js](#nodejs)
 		2. [Deno and Browser](#deno-and-browser)
 	4. [Usage](#usage)
-	5. [Examples](#examples)
-	6. [Enums](#enums)
+		1. [Using a `fetch()` Polyfill](#using-a-fetch-polyfill)
+		2. [Documentation](#documentation-1)
+		3. [Examples](#examples)
+	5. [Enums](#enums)
 
 ## Documentation
 Documentation is [available here](https://minimusubi.github.io/curseforge-api/) and is automatically generated from the source with [TypeDoc](https://typedoc.org/).
@@ -47,6 +49,7 @@ Start by creating a [client](https://minimusubi.github.io/curseforge-api/classes
 const client = new CurseForgeClient('YOUR_API_KEY');
 ```
 
+### Using a `fetch()` Polyfill
 If you're using Node.js < v17.5.0, you'll want to provide a `fetch()` polyfill such as [node-fetch](https://www.npmjs.com/package/node-fetch):
 ```js
 import fetch from 'node-fetch';
@@ -57,7 +60,10 @@ const client = new CurseForgeClient('YOUR_API_KEY', {fetch});
 
 You can also provide a different polyfill, for example, if you're running this in a browser environment and target older browsers that don't support `fetch()`. As seen above, simply pass the polyfilled `fetch` function to the client constructor via the options.
 
-## Examples
+### Documentation
+All classes, functions, enums, and types are [documented here](https://minimusubi.github.io/curseforge-api/).
+
+### Examples
 Search for a mod via slug:
 ```js
 import {CurseForgeGameEnum} from 'curseforge-api';
