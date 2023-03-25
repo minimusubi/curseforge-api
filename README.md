@@ -40,11 +40,16 @@ import {CurseForgeClient} from 'curseforge-api';
 ```
 
 ### Deno and Browser
-Import modules directly via CDN (for example, jsDelivr or unpkg):
+Import modules directly via CDN (for example, [esm.sh](https://esm.sh/), [Skypack](https://www.skypack.dev/), [jsDelivr](https://www.jsdelivr.com/) or [unpkg](https://www.unpkg.com/)):
 ```js
-import {CurseForgeClient} from 'https://cdn.jsdelivr.net/npm/curseforge-api@1.0/index.js';
+// Recommended for Deno
+import {CurseForgeClient} from 'https://esm.sh/curseforge-api';
 // OR
-import {CurseForgeClient} from 'https://unpkg.com/curseforge-api@1.0/index.js'
+import {CurseForgeClient} from 'https://cdn.skypack.dev/curseforge-api';
+// OR
+import {CurseForgeClient} from 'https://cdn.jsdelivr.net/npm/curseforge-api';
+// OR
+import {CurseForgeClient} from 'https://unpkg.com/curseforge-api'
 ```
 
 ## Usage
