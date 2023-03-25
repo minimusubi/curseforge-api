@@ -2,6 +2,7 @@ import {cp, readFile, writeFile} from 'fs/promises';
 
 const [, , nextVersion] = process.argv;
 const packageJson = JSON.parse(await readFile('./package.json'));
+const packageLockJson = JSON.parse(await readFile('./package-lock.json'));
 
 function toJsonString(object) {
 	return JSON.stringify(object, null, '  ');
@@ -10,6 +11,10 @@ function toJsonString(object) {
 if (nextVersion !== undefined) {
 	packageJson.version = nextVersion;
 	await writeFile('./package.json', `${toJsonString(packageJson)}\n`);
+
+	packageLockJson.version = nextVersion;
+	packageLockJson.packages[''].version = nextVersion;
+	await writeFile('./package-lock.json', `${toJsonString(packageLockJson)}\n`);
 }
 
 delete packageJson.devDependencies;
