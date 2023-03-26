@@ -1,6 +1,6 @@
 <!-- omit in toc -->
 # curseforge-api 🚀
-This is a JavaScript module built around the new [CurseForge Core API](https://docs.curseforge.com/#accessing-the-service) following the deprecation of the older, unnofficial API. It is designed to be easy to use and has zero dependencies 🙌. More information about the CurseForge Core API is [available here](https://docs.curseforge.com/).
+This is a JavaScript module built around the new CurseForge [Eternal API](https://docs.curseforge.com/#getting-started) (previously "CurseForge Core API") following the deprecation of the older, unnofficial API. It is designed to be easy to use and has zero dependencies 🙌. More information about the Eternal API is [available here](https://docs.curseforge.com/).
 
 This module provides TypeScript typings.
 
@@ -112,4 +112,4 @@ console.log(await file.getDownloadURL()); // => 'https://edge.forgecdn.net/files
 ## Enums
 For convenience, the game IDs that were available at the time of publishing are [available as an enum](https://minimusubi.github.io/curseforge-api/enums/CurseForgeGameEnum.html). You can use this wherever you need to provide a game ID.
 
-There are also enums and typings available for all documented types on the [CurseForge Core API](https://docs.curseforge.com/#schemas).
+There are also enums and typings available for all documented types on the [Eternal API](https://docs.curseforge.com/#schemas).
