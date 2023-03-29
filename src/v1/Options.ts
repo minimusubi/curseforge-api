@@ -1,18 +1,20 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 
-import {CurseForgeModLoaderType, CurseForgeModsSearchSortField, CurseForgeSortOrder} from './Types.js';
+import {CurseForgeGetFingerprintMatchesRequestBody, CurseForgeGetFuzzyMatchesRequestBody, CurseForgeModLoaderType, CurseForgeModsSearchSortField, CurseForgeSortOrder} from './Types.js';
 
 export interface CurseForgeGetGamesOptions {
-	/** A zero based index of the first item to include in the response,. */
+	/** A zero based index of the first item to include in the response,  the limit is: (index + pageSize <= 10,000). */
 	index?: number,
-	/** The number of items to include in the response,. */
+	/** The number of items to include in the response,  the default/maximum value is 50. */
 	pageSize?: number,
 }
 
 export interface CurseForgeGetCategoriesOptions {
 	/** A class unique id. */
 	classId?: number,
+	/** A flag used with gameId to return only classes. */
+	classesOnly?: boolean,
 }
 
 export interface CurseForgeSearchModsOptions {
@@ -32,11 +34,13 @@ export interface CurseForgeSearchModsOptions {
 	modLoaderType?: CurseForgeModLoaderType,
 	/** Filter only mods that contain files tagged with versions of the given gameVersionTypeId. */
 	gameVersionTypeId?: number,
+	/** Filter only mods that the given authorId is a member of. */
+	authorId?: number,
 	/** Filter by slug (coupled with classId will result in a unique result). */
 	slug?: string,
-	/** A zero based index of the first item to include in the response,. */
+	/** A zero based index of the first item to include in the response,  the limit is: (index + pageSize <= 10,000). */
 	index?: number,
-	/** The number of items to include in the response,. */
+	/** The number of items to include in the response,  the default/maximum value is 50. */
 	pageSize?: number,
 }
 
@@ -54,9 +58,9 @@ export interface CurseForgeGetModFilesOptions {
 	modLoaderType?: CurseForgeModLoaderType,
 	/** Filter only files that are tagged with versions of the given gameVersionTypeId. */
 	gameVersionTypeId?: number,
-	/** A zero based index of the first item to include in the response,. */
+	/** A zero based index of the first item to include in the response,  the limit is: (index + pageSize <= 10,000). */
 	index?: number,
-	/** The number of items to include in the response,. */
+	/** The number of items to include in the response,  the default/maximum value is 50. */
 	pageSize?: number,
 }
 
@@ -72,6 +76,20 @@ export interface CurseForgeGetModFileDownloadURLOptions {
 	modId: number,
 	/** The file id. */
 	fileId: number,
+}
+
+export interface CurseForgeGetFingerprintsMatchesByGameIdOptions {
+	/** The game id for matching fingerprints. */
+	gameId: number,
+	/** The request body containing an array of fingerprints. */
+	body: CurseForgeGetFingerprintMatchesRequestBody,
+}
+
+export interface CurseForgeGetFingerprintsFuzzyMatchesByGameIdOptions {
+	/** The game id for matching fingerprints. */
+	gameId: number,
+	/** Game id and folder fingerprints options for the fuzzy matching. */
+	body: CurseForgeGetFuzzyMatchesRequestBody,
 }
 
 export interface CurseForgeGetMinecraftVersionsOptions {

@@ -2,7 +2,7 @@ import CurseForgeFile from './File.js';
 import CurseForgeGame from './Game.js';
 import CurseForgeMod from './Mod.js';
 import {CurseForgeGetCategoriesOptions, CurseForgeGetGamesOptions, CurseForgeGetMinecraftModLoadersOptions, CurseForgeGetMinecraftVersionsOptions, CurseForgeGetModFilesOptions, CurseForgeSearchModsOptions} from './Options.js';
-import {CurseForgeApiResponseOfListOfMinecraftGameVersion, CurseForgeApiResponseOfListOfMinecraftModLoaderIndex, CurseForgeApiResponseOfMinecraftGameVersion, CurseForgeApiResponseOfMinecraftModLoaderVersion, CurseForgeFingerprintFuzzyMatchRaw, CurseForgeFingerprintMatchRaw, CurseForgeFingerprintsMatchesResult, CurseForgeGetCategoriesResponseRaw, CurseForgeGetFeaturedModsRequestBody, CurseForgeGetFeaturedModsResponseRaw, CurseForgeGetFilesResponseRaw, CurseForgeGetFingerprintMatchesResponseRaw, CurseForgeGetFingerprintsFuzzyMatchesResponseRaw, CurseForgeGetFuzzyMatchesRequestBody, CurseForgeGetGameResponseRaw, CurseForgeGetGamesResponseRaw, CurseForgeGetModFileResponseRaw, CurseForgeGetModFilesResponseRaw, CurseForgeGetModResponseRaw, CurseForgeGetModsResponseRaw, CurseForgeGetVersionsResponseRaw, CurseForgeGetVersionTypesResponseRaw, CurseForgePagination, CurseForgeSearchModsResponseRaw, CurseForgeStringResponseRaw} from './Types.js';
+import {CurseForgeApiResponseOfListOfMinecraftGameVersion, CurseForgeApiResponseOfListOfMinecraftModLoaderIndex, CurseForgeApiResponseOfMinecraftGameVersion, CurseForgeApiResponseOfMinecraftModLoaderVersion, CurseForgeFingerprintFuzzyMatchRaw, CurseForgeFingerprintMatchRaw, CurseForgeFingerprintsMatchesResult, CurseForgeGetCategoriesResponseRaw, CurseForgeGetFeaturedModsRequestBody, CurseForgeGetFeaturedModsResponseRaw, CurseForgeGetFilesResponseRaw, CurseForgeGetFingerprintMatchesResponseRaw, CurseForgeGetFingerprintsFuzzyMatchesResponseRaw, CurseForgeGetFuzzyMatchesRequestBody, CurseForgeGetGameResponseRaw, CurseForgeGetGamesResponseRaw, CurseForgeGetModFileResponseRaw, CurseForgeGetModFilesResponseRaw, CurseForgeGetModResponseRaw, CurseForgeGetModsResponseRaw, CurseForgeGetVersionsResponseRaw_V1, CurseForgeGetVersionTypesResponseRaw, CurseForgePagination, CurseForgeSearchModsResponseRaw, CurseForgeStringResponseRaw} from './Types.js';
 
 export type CurseForgeClass = typeof CurseForgeFile | typeof CurseForgeGame | typeof CurseForgeMod;
 
@@ -259,7 +259,7 @@ export default class CurseForgeClient {
 	 * @throws {@link CurseForgeResponseError} when the request fails
 	 */
 	async getVersions(gameId: number) {
-		const data = await this.fetchUrl(`/v1/games/${gameId}/versions`) as CurseForgeGetVersionsResponseRaw;
+		const data = await this.fetchUrl(`/v1/games/${gameId}/versions`) as CurseForgeGetVersionsResponseRaw_V1;
 
 		return data.data;
 	}
@@ -431,7 +431,7 @@ export default class CurseForgeClient {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param fingerprints An array of fingerprints
 	 * @returns A list of mod files
 	 * @throws {@link CurseForgeResponseError} when the request fails
@@ -481,7 +481,7 @@ export default class CurseForgeClient {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param options Sort options
 	 * @returns A list of Minecraft game versions
 	 * @throws {@link CurseForgeResponseError} when the request fails
@@ -493,8 +493,8 @@ export default class CurseForgeClient {
 	}
 
 	/**
-	 * 
-	 * @param gameVersionString 
+	 *
+	 * @param gameVersionString
 	 * @returns A Minecraft game version
 	 * @throws {@link CurseForgeResponseError} when the request fails
 	 */
@@ -505,7 +505,7 @@ export default class CurseForgeClient {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param options Filter options
 	 * @returns A list of Minecraft mod loaders
 	 */
@@ -516,8 +516,8 @@ export default class CurseForgeClient {
 	}
 
 	/**
-	 * 
-	 * @param modLoaderName 
+	 *
+	 * @param modLoaderName
 	 * @returns A Minecraft mod loader
 	 */
 	async getSpecificMinecraftModLoader(modLoaderName: string) {

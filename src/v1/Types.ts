@@ -104,6 +104,8 @@ export interface CurseForgeFileRaw {
 	alternateFileId?: number,
 	isServerPack?: boolean,
 	serverPackFileId?: number,
+	isEarlyAccessContent?: boolean,
+	earlyAccessEndDate?: Date,
 	fileFingerprint: number,
 	modules: CurseForgeFileModule[],
 }
@@ -214,9 +216,20 @@ export interface CurseForgeGameAssets {
 	coverUrl: string,
 }
 
+export interface CurseForgeGameVersion {
+	id: number,
+	slug: string,
+	name: string,
+}
+
 export interface CurseForgeGameVersionsByType {
 	type: number,
 	versions: string[],
+}
+
+export interface CurseForgeGameVersionsByType2 {
+	type: number,
+	versions: CurseForgeGameVersion[],
 }
 
 export enum CurseForgeGameVersionStatus {
@@ -301,9 +314,14 @@ export interface CurseForgeGetVersionTypesResponseRaw {
 	data: CurseForgeGameVersionType[],
 }
 
-export interface CurseForgeGetVersionsResponseRaw {
+export interface CurseForgeGetVersionsResponseRaw_V1 {
 	/** The response data. */
 	data: CurseForgeGameVersionsByType[],
+}
+
+export interface CurseForgeGetVersionsResponseRaw_V2 {
+	/** The response data. */
+	data: CurseForgeGameVersionsByType2[],
 }
 
 export interface CurseForgeGetFeaturedModsRequestBody {
