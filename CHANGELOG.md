@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/minimusubi/curseforge-api/compare/v1.0.2...v1.1.0) (2023-03-29)
+
+
+### Features
+
+* update API to match latest ([d9256b2](https://github.com/minimusubi/curseforge-api/commit/d9256b2f2ea24052da5c8254eda61bd27520a496))
+
 ## [1.0.2](https://github.com/minimusubi/curseforge-api/compare/v1.0.1...v1.0.2) (2022-08-12)
 
 
