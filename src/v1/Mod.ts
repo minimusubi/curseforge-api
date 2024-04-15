@@ -1,7 +1,7 @@
 import CurseForgeBase from './Base.js';
 import CurseForgeClient from './Client.js';
 import CurseForgeFile from './File.js';
-import {CurseForgeGetModFilesOptions} from './Options.js';
+import {CurseForgeGetModDescriptionOptions, CurseForgeGetModFilesOptions} from './Options.js';
 import {CurseForgeCategory, CurseForgeFileIndex, CurseForgeGetModResponseRaw, CurseForgeModAsset, CurseForgeModAuthor, CurseForgeModLinks, CurseForgeModStatus} from './Types.js';
 
 /**
@@ -44,6 +44,8 @@ export default class CurseForgeMod extends CurseForgeBase {
 	latestFiles: CurseForgeFile[];
 	/** List of file related details for the latest files of the mod. */
 	latestFilesIndexes: CurseForgeFileIndex[];
+	/** List of file related details for the latest early access files of the mod. */
+	latestEarlyAccessFilesIndexes: CurseForgeFileIndex[];
 	/** The creation date of the mod. */
 	dateCreated: Date;
 	/** The last time the mod was modified. */
@@ -58,6 +60,8 @@ export default class CurseForgeMod extends CurseForgeBase {
 	isAvailable: boolean;
 	/** The mod's thumbs up count. */
 	thumbsUpCount: number;
+	/** The mod's Rating. */
+	rating?: number;
 
 	/**
 	 * Constructs a new mod representation.
@@ -88,6 +92,7 @@ export default class CurseForgeMod extends CurseForgeBase {
 			return new CurseForgeFile(client, rawFile);
 		});
 		this.latestFilesIndexes = data.latestFilesIndexes;
+		this.latestEarlyAccessFilesIndexes = data.latestEarlyAccessFilesIndexes;
 		this.dateCreated = data.dateCreated;
 		this.dateModified = data.dateModified;
 		this.dateReleased = data.dateReleased;
@@ -95,14 +100,15 @@ export default class CurseForgeMod extends CurseForgeBase {
 		this.gamePopularityRank = data.gamePopularityRank;
 		this.isAvailable = data.isAvailable;
 		this.thumbsUpCount = data.thumbsUpCount;
+		this.rating = data.rating;
 	}
 
 	/**
 	 * {@inheritDoc CurseForgeClient.getModDescription}
 	 * @throws {@link CurseForgeResponseError} when the request fails
 	 */
-	getDescription() {
-		return this.client.getModDescription(this.id);
+	getDescription(options?: CurseForgeGetModDescriptionOptions) {
+		return this.client.getModDescription(this.id, options);
 	}
 
 	/**

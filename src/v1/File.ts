@@ -30,6 +30,8 @@ export default class CurseForgeFile extends CurseForgeBase {
 	fileLength: number;
 	/** The number of downloads for the file. */
 	downloadCount: number;
+	/** The file's size on disk. */
+	fileSizeOnDisk?: number;
 	/** The file download URL. */
 	downloadUrl: string;
 	/** List of game versions this file is relevant for. */
@@ -43,6 +45,8 @@ export default class CurseForgeFile extends CurseForgeBase {
 	alternateFileId?: number;
 	isServerPack?: boolean;
 	serverPackFileId?: number;
+	isEarlyAccessContent?: boolean;
+	earlyAccessEndDate?: Date;
 	fileFingerprint: number;
 	modules: CurseForgeFileModule[];
 
@@ -67,6 +71,7 @@ export default class CurseForgeFile extends CurseForgeBase {
 		this.fileDate = data.fileDate;
 		this.fileLength = data.fileLength;
 		this.downloadCount = data.downloadCount;
+		this.fileSizeOnDisk = data.fileSizeOnDisk;
 		this.downloadUrl = data.downloadUrl;
 		this.gameVersions = data.gameVersions;
 		this.sortableGameVersions = data.sortableGameVersions;
@@ -76,6 +81,8 @@ export default class CurseForgeFile extends CurseForgeBase {
 		this.alternateFileId = data.alternateFileId;
 		this.isServerPack = data.isServerPack;
 		this.serverPackFileId = data.serverPackFileId;
+		this.isEarlyAccessContent = data.isEarlyAccessContent;
+		this.earlyAccessEndDate = data.earlyAccessEndDate;
 		this.fileFingerprint = data.fileFingerprint;
 		this.modules = data.modules;
 	}

@@ -91,6 +91,8 @@ export interface CurseForgeFileRaw {
 	fileLength: number,
 	/** The number of downloads for the file. */
 	downloadCount: number,
+	/** The file's size on disk. */
+	fileSizeOnDisk?: number,
 	/** The file download URL. */
 	downloadUrl: string,
 	/** List of game versions this file is relevant for. */
@@ -243,6 +245,8 @@ export interface CurseForgeGameVersionType {
 	gameId: number,
 	name: string,
 	slug: string,
+	isSyncable: boolean,
+	status: CurseForgeGameVersionTypeStatus,
 }
 
 export enum CurseForgeGameVersionTypeStatus {
@@ -345,6 +349,7 @@ export interface CurseForgeGetModFilesRequestBody {
 
 export interface CurseForgeGetModsByIdsListRequestBody {
 	modIds: number[],
+	filterPcOnly?: boolean,
 }
 
 export enum CurseForgeHashAlgo {
@@ -441,6 +446,8 @@ export interface CurseForgeModRaw {
 	latestFiles: CurseForgeFileRaw[],
 	/** List of file related details for the latest files of the mod. */
 	latestFilesIndexes: CurseForgeFileIndex[],
+	/** List of file related details for the latest early access files of the mod. */
+	latestEarlyAccessFilesIndexes: CurseForgeFileIndex[],
 	/** The creation date of the mod. */
 	dateCreated: Date,
 	/** The last time the mod was modified. */
@@ -455,6 +462,8 @@ export interface CurseForgeModRaw {
 	isAvailable: boolean,
 	/** The mod's thumbs up count. */
 	thumbsUpCount: number,
+	/** The mod's Rating. */
+	rating?: number,
 }
 
 export interface CurseForgeModAsset {
@@ -492,6 +501,7 @@ export enum CurseForgeModLoaderType {
 	LiteLoader = 3,
 	Fabric = 4,
 	Quilt = 5,
+	NeoForge = 6,
 }
 
 export enum CurseForgeModsSearchSortField {
@@ -503,6 +513,10 @@ export enum CurseForgeModsSearchSortField {
 	TotalDownloads = 6,
 	Category = 7,
 	GameVersion = 8,
+	EarlyAccess = 9,
+	FeaturedReleased = 10,
+	ReleasedDate = 11,
+	Rating = 12,
 }
 
 export enum CurseForgeModStatus {

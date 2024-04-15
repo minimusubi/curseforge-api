@@ -1,7 +1,7 @@
 import CurseForgeFile from './File.js';
 import CurseForgeGame from './Game.js';
 import CurseForgeMod from './Mod.js';
-import {CurseForgeGetCategoriesOptions, CurseForgeGetGamesOptions, CurseForgeGetMinecraftModLoadersOptions, CurseForgeGetMinecraftVersionsOptions, CurseForgeGetModFilesOptions, CurseForgeSearchModsOptions} from './Options.js';
+import {CurseForgeGetCategoriesOptions, CurseForgeGetGamesOptions, CurseForgeGetMinecraftModLoadersOptions, CurseForgeGetMinecraftVersionsOptions, CurseForgeGetModDescriptionOptions, CurseForgeGetModFilesOptions, CurseForgeSearchModsOptions} from './Options.js';
 import {CurseForgeApiResponseOfListOfMinecraftGameVersion, CurseForgeApiResponseOfListOfMinecraftModLoaderIndex, CurseForgeApiResponseOfMinecraftGameVersion, CurseForgeApiResponseOfMinecraftModLoaderVersion, CurseForgeFingerprintFuzzyMatchRaw, CurseForgeFingerprintMatchRaw, CurseForgeFingerprintsMatchesResult, CurseForgeGetCategoriesResponseRaw, CurseForgeGetFeaturedModsRequestBody, CurseForgeGetFeaturedModsResponseRaw, CurseForgeGetFilesResponseRaw, CurseForgeGetFingerprintMatchesResponseRaw, CurseForgeGetFingerprintsFuzzyMatchesResponseRaw, CurseForgeGetFuzzyMatchesRequestBody, CurseForgeGetGameResponseRaw, CurseForgeGetGamesResponseRaw, CurseForgeGetModFileResponseRaw, CurseForgeGetModFilesResponseRaw, CurseForgeGetModResponseRaw, CurseForgeGetModsResponseRaw, CurseForgeGetVersionsResponseRaw_V1, CurseForgeGetVersionTypesResponseRaw, CurseForgePagination, CurseForgeSearchModsResponseRaw, CurseForgeStringResponseRaw} from './Types.js';
 
 export type CurseForgeClass = typeof CurseForgeFile | typeof CurseForgeGame | typeof CurseForgeMod;
@@ -126,7 +126,7 @@ export default class CurseForgeClient {
 			} catch {}
 		}
 
-		// @ts-ignore Allow #fetch to be undefined, but throw
+		// @ts-expect-error Allow #fetch to be undefined, but throw
 		if (typeof this.#fetch === 'undefined') {
 			throw new TypeError('fetch() is not available in this environment. Please provide an implementation of fetch.');
 		}
@@ -358,8 +358,8 @@ export default class CurseForgeClient {
 	 * @returns The HTML description
 	 * @throws {@link CurseForgeResponseError} when the request fails
 	 */
-	async getModDescription(modId: number) {
-		const {data} = await this.fetchUrl(`/v1/mods/${modId}/description`) as CurseForgeStringResponseRaw;
+	async getModDescription(modId: number, options?: CurseForgeGetModDescriptionOptions) {
+		const {data} = await this.fetchUrl(`/v1/mods/${modId}/description`, {query: options as CurseForgeFetchQuery}) as CurseForgeStringResponseRaw;
 
 		return data;
 	}
