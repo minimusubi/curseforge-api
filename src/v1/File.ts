@@ -31,7 +31,7 @@ export default class CurseForgeFile extends CurseForgeBase {
 	/** The number of downloads for the file. */
 	downloadCount: number;
 	/** The file's size on disk. */
-	fileSizeOnDisk?: number;
+	fileSizeOnDisk: number | null;
 	/** The file download URL. */
 	downloadUrl: string;
 	/** List of game versions this file is relevant for. */
@@ -40,13 +40,13 @@ export default class CurseForgeFile extends CurseForgeBase {
 	sortableGameVersions: CurseForgeSortableGameVersion[];
 	/** List of dependencies files. */
 	dependencies: CurseForgeFileDependency[];
-	exposeAsAlternative?: boolean;
-	parentProjectFileId?: number;
-	alternateFileId?: number;
-	isServerPack?: boolean;
-	serverPackFileId?: number;
-	isEarlyAccessContent?: boolean;
-	earlyAccessEndDate?: Date;
+	exposeAsAlternative: boolean | null;
+	parentProjectFileId: number | null;
+	alternateFileId: number | null;
+	isServerPack: boolean | null;
+	serverPackFileId: number | null;
+	isEarlyAccessContent: boolean | null;
+	earlyAccessEndDate: Date | null;
 	fileFingerprint: number;
 	modules: CurseForgeFileModule[];
 

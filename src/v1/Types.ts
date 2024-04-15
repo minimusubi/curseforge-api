@@ -37,13 +37,13 @@ export interface CurseForgeCategory {
 	/** Last modified date of the category. */
 	dateModified: Date,
 	/** A top level category for other categories. */
-	isClass?: boolean,
+	isClass: boolean | null,
 	/** The class id of the category, meaning - the class of which this category is under. */
-	classId?: number,
+	classId: number | null,
 	/** The parent category for this category. */
-	parentCategoryId?: number,
+	parentCategoryId: number | null,
 	/** The display index for this category. */
-	displayIndex?: number,
+	displayIndex: number | null,
 }
 
 export enum CurseForgeCoreApiStatus {
@@ -92,7 +92,7 @@ export interface CurseForgeFileRaw {
 	/** The number of downloads for the file. */
 	downloadCount: number,
 	/** The file's size on disk. */
-	fileSizeOnDisk?: number,
+	fileSizeOnDisk: number | null,
 	/** The file download URL. */
 	downloadUrl: string,
 	/** List of game versions this file is relevant for. */
@@ -101,13 +101,13 @@ export interface CurseForgeFileRaw {
 	sortableGameVersions: CurseForgeSortableGameVersion[],
 	/** List of dependencies files. */
 	dependencies: CurseForgeFileDependency[],
-	exposeAsAlternative?: boolean,
-	parentProjectFileId?: number,
-	alternateFileId?: number,
-	isServerPack?: boolean,
-	serverPackFileId?: number,
-	isEarlyAccessContent?: boolean,
-	earlyAccessEndDate?: Date,
+	exposeAsAlternative: boolean | null,
+	parentProjectFileId: number | null,
+	alternateFileId: number | null,
+	isServerPack: boolean | null,
+	serverPackFileId: number | null,
+	isEarlyAccessContent: boolean | null,
+	earlyAccessEndDate: Date | null,
 	fileFingerprint: number,
 	modules: CurseForgeFileModule[],
 }
@@ -127,7 +127,7 @@ export interface CurseForgeFileIndex {
 	fileId: number,
 	filename: string,
 	releaseType: CurseForgeFileReleaseType,
-	gameVersionTypeId?: number,
+	gameVersionTypeId: number | null,
 	modLoader: CurseForgeModLoaderType,
 }
 
@@ -331,7 +331,7 @@ export interface CurseForgeGetVersionsResponseRaw_V2 {
 export interface CurseForgeGetFeaturedModsRequestBody {
 	gameId: number,
 	excludedModIds: number[],
-	gameVersionTypeId?: number,
+	gameVersionTypeId: number | null,
 }
 
 export interface CurseForgeGetFingerprintMatchesRequestBody {
@@ -349,7 +349,7 @@ export interface CurseForgeGetModFilesRequestBody {
 
 export interface CurseForgeGetModsByIdsListRequestBody {
 	modIds: number[],
-	filterPcOnly?: boolean,
+	filterPcOnly: boolean | null,
 }
 
 export enum CurseForgeHashAlgo {
@@ -433,7 +433,7 @@ export interface CurseForgeModRaw {
 	/** List of categories that this mod is related to. */
 	categories: CurseForgeCategory[],
 	/** The class id this mod belongs to. */
-	classId?: number,
+	classId: number | null,
 	/** List of the mod's authors. */
 	authors: CurseForgeModAuthor[],
 	/** The mod's logo asset. */
@@ -455,7 +455,7 @@ export interface CurseForgeModRaw {
 	/** The release date of the mod. */
 	dateReleased: Date,
 	/** Is mod allowed to be distributed. */
-	allowModDistribution?: boolean,
+	allowModDistribution: boolean | null,
 	/** The mod popularity rank for the game. */
 	gamePopularityRank: number,
 	/** Is the mod available for search. This can be false when a mod is experimental, in a deleted state or has only alpha files. */
@@ -463,7 +463,7 @@ export interface CurseForgeModRaw {
 	/** The mod's thumbs up count. */
 	thumbsUpCount: number,
 	/** The mod's Rating. */
-	rating?: number,
+	rating: number | null,
 }
 
 export interface CurseForgeModAsset {
@@ -560,7 +560,7 @@ export interface CurseForgeSortableGameVersion {
 	/** Game version release date. */
 	gameVersionReleaseDate: Date,
 	/** Game version type id. */
-	gameVersionTypeId?: number,
+	gameVersionTypeId: number | null,
 }
 
 export enum CurseForgeSortOrder {

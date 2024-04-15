@@ -31,7 +31,7 @@ export default class CurseForgeMod extends CurseForgeBase {
 	/** List of categories that this mod is related to. */
 	categories: CurseForgeCategory[];
 	/** The class id this mod belongs to. */
-	classId?: number;
+	classId: number | null;
 	/** List of the mod's authors. */
 	authors: CurseForgeModAuthor[];
 	/** The mod's logo asset. */
@@ -53,7 +53,7 @@ export default class CurseForgeMod extends CurseForgeBase {
 	/** The release date of the mod. */
 	dateReleased: Date;
 	/** Is mod allowed to be distributed. */
-	allowModDistribution?: boolean;
+	allowModDistribution: boolean | null;
 	/** The mod popularity rank for the game. */
 	gamePopularityRank: number;
 	/** Is the mod available for search. This can be false when a mod is experimental, in a deleted state or has only alpha files. */
@@ -61,7 +61,7 @@ export default class CurseForgeMod extends CurseForgeBase {
 	/** The mod's thumbs up count. */
 	thumbsUpCount: number;
 	/** The mod's Rating. */
-	rating?: number;
+	rating: number | null;
 
 	/**
 	 * Constructs a new mod representation.
