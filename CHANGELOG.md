@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/minimusubi/curseforge-api/compare/v1.2.0...v1.3.0) (2024-04-15)
+
+
+### Features
+
+* update game enums ([a796613](https://github.com/minimusubi/curseforge-api/commit/a796613cd73b649b7904b9e1ddcf89aceaf683ae))
+
 # [1.2.0](https://github.com/minimusubi/curseforge-api/compare/v1.1.0...v1.2.0) (2024-04-15)
 
 
