@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/minimusubi/curseforge-api/compare/v1.1.0...v1.2.0) (2024-04-15)
+
+
+### Bug Fixes
+
+* mod links are sometimes null ([0fa8a37](https://github.com/minimusubi/curseforge-api/commit/0fa8a37398b358f84f8baf03d5760d6bb0ebd576)), closes [#2](https://github.com/minimusubi/curseforge-api/issues/2)
+* properties incorrectly marked as optional ([70611ec](https://github.com/minimusubi/curseforge-api/commit/70611ec768be91bd3ad242323f807c84f33bb03d))
+
+
+### Features
+
+* update API to match latest docs ([a07c7da](https://github.com/minimusubi/curseforge-api/commit/a07c7da41f8b6a8d82af3124b1e1cf89d49803aa))
+
 # [1.1.0](https://github.com/minimusubi/curseforge-api/compare/v1.0.2...v1.1.0) (2023-03-29)
 
 
