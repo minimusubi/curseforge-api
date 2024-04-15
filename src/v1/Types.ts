@@ -484,8 +484,8 @@ export interface CurseForgeModAuthor {
 export interface CurseForgeModLinks {
 	websiteUrl: string,
 	wikiUrl: string,
-	issuesUrl: string,
-	sourceUrl: string,
+	issuesUrl: string | null,
+	sourceUrl: string | null,
 }
 
 export enum CurseForgeModLoaderInstallMethod {
