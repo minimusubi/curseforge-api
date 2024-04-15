@@ -1,10 +1,10 @@
 <!-- omit in toc -->
 # curseforge-api 🚀
-This is a JavaScript module built around the new CurseForge [Eternal API](https://docs.curseforge.com/#getting-started) (previously "CurseForge Core API") following the deprecation of the older, unnofficial API. It is designed to be easy to use and has zero dependencies 🙌. More information about the Eternal API is [available here](https://docs.curseforge.com/).
+This is a JavaScript module built around the new [CurseForge for Studios API](https://docs.curseforge.com/#getting-started) (also formerly known as "Eternal API" and "CurseForge Core API") following the deprecation of the older, unnofficial API. It is designed to be easy to use and has zero dependencies 🙌. More information about the CurseForge for Studios API is [available here](https://docs.curseforge.com/).
 
 This module provides TypeScript typings.
 
-This module uses `fetch()` under the hood to make requests. However, if used Node.js, keep in mind that `fetch()` was not added until `v17.5.0`, and is behind the `--experimental-fetch` flag until `v18.0.0`. For this reason, where `fetch()` is unavailable, the module can use a fetch polyfill such as [node-fetch](https://www.npmjs.com/package/node-fetch).
+This module uses `fetch()` under the hood to make requests. However, if you're using Node.js, keep in mind that `fetch()` was not added until `v17.5.0`, and is behind the `--experimental-fetch` flag until `v18.0.0`. For this reason, where `fetch()` is unavailable, the module can use a fetch polyfill such as [node-fetch](https://www.npmjs.com/package/node-fetch).
 
 <!-- omit in toc -->
 ## Table of Contents
@@ -112,4 +112,4 @@ console.log(await file.getDownloadURL()); // => 'https://edge.forgecdn.net/files
 ## Enums
 For convenience, the game IDs that were available at the time of publishing are [available as an enum](https://minimusubi.github.io/curseforge-api/enums/CurseForgeGameEnum.html). You can use this wherever you need to provide a game ID.
 
-There are also enums and typings available for all documented types on the [Eternal API](https://docs.curseforge.com/#schemas).
+There are also enums and typings available for all documented types on the [CurseForge for Studios API](https://docs.curseforge.com/#schemas).
